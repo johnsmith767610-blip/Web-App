@@ -1,0 +1,238 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 48 100% 97%;
+    --foreground: 216 14% 9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 216 14% 9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 216 14% 9%;
+
+    --primary: 43 97% 51%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 31 100% 50%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 210 15% 96%;
+    --muted-foreground: 210 10% 45%;
+
+    --accent: 172 58% 51%;
+    --accent-foreground: 0 0% 100%;
+
+    --success: 142 76% 45%;
+    --success-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 210 15% 90%;
+    --input: 210 15% 90%;
+    --ring: 43 97% 51%;
+
+    --radius: 1.25rem;
+
+    --hero-gradient: linear-gradient(135deg, hsl(43 97% 51%) 0%, hsl(31 100% 50%) 100%);
+    --solar-glow: 0 25px 70px -15px hsl(31 100% 50% / 0.4);
+    --card-shadow: 0 12px 32px -8px hsl(216 14% 9% / 0.12);
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --gradient-vibrant: linear-gradient(120deg, hsl(43 97% 51%) 0%, hsl(31 100% 50%) 100%);
+    --teal-gradient: linear-gradient(135deg, hsl(172 58% 51%) 0%, hsl(200 98% 39%) 100%);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 210 25% 8%;
+    --foreground: 210 10% 95%;
+
+    --card: 210 20% 12%;
+    --card-foreground: 210 10% 95%;
+
+    --popover: 210 20% 12%;
+    --popover-foreground: 210 10% 95%;
+
+    --primary: 43 97% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 31 100% 55%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 210 15% 20%;
+    --muted-foreground: 210 10% 60%;
+
+    --accent: 172 58% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 210 15% 20%;
+    --input: 210 15% 20%;
+    --ring: 43 97% 55%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+}
+
+@layer components {
+  .solar-gradient {
+    @apply bg-gradient-to-r from-[#FFD54A] to-[#FF8A00];
+  }
+
+  .solar-gradient-text {
+    @apply bg-gradient-to-r from-[#FFD54A] via-[#FF8A00] to-[#FF6B00] bg-clip-text text-transparent;
+  }
+
+  .teal-gradient {
+    @apply bg-gradient-to-r from-[#00BFA6] to-[#00A896];
+  }
+
+  .btn-solar {
+    @apply rounded-2xl px-8 py-3 font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl active:scale-95 bg-gradient-to-r from-[#FFD54A] to-[#FF8A00];
+  }
+
+  .btn-solar-secondary {
+    @apply rounded-2xl px-8 py-3 font-semibold text-[#00BFA6] border-2 border-[#00BFA6] transition-all duration-300 hover:scale-105 hover:bg-[#00BFA6]/10 active:scale-95;
+  }
+
+  .card-solar {
+    @apply rounded-2xl bg-white shadow-lg border border-gray-100 overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+  }
+
+  .scroll-fade-in {
+    @apply opacity-0 animate-in fade-in slide-in-from-bottom-4 duration-700;
+  }
+
+  .lightbox-overlay {
+    @apply fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center;
+  }
+
+  .lightbox-content {
+    @apply relative max-w-4xl max-h-[90vh] bg-white rounded-2xl shadow-2xl overflow-hidden;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes glow-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(255, 213, 74, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(255, 213, 74, 0.6);
+  }
+}
+
+@layer utilities {
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  .animate-slide-in-left {
+    animation: slideInLeft 0.6s ease-out forwards;
+  }
+
+  .animate-slide-in-right {
+    animation: slideInRight 0.6s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.5s ease-out forwards;
+  }
+
+  .animate-glow-pulse {
+    animation: glow-pulse 2s ease-in-out infinite;
+  }
+
+  .solar-shadow {
+    box-shadow: var(--solar-glow);
+  }
+
+  .card-shadow {
+    box-shadow: var(--card-shadow);
+  }
+
+  .smooth-transition {
+    transition: var(--transition-smooth);
+  }
+}
