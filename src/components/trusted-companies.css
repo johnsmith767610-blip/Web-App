@@ -1,0 +1,38 @@
+.carousel-container {
+  width: 100%;
+  overflow: hidden;
+  padding: 20px 0;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 1rem;
+  animation: scroll-left 40s linear infinite;
+}
+
+.carousel-item {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.carousel-track:hover {
+  animation-play-state: paused;
+}
+
+@media (max-width: 768px) {
+  .carousel-track {
+    animation: scroll-left 25s linear infinite;
+    gap: 0.75rem;
+  }
+}

@@ -1,85 +1,65 @@
-import { Building2 } from "lucide-react";
+import "./trusted-companies.css";
 
-const companies = [
-  {
-    id: 1,
-    name: "Company 1",
-    logo: "/src/assets/trusted-companies/company1.png",
-    alt: "Company 1",
-  },
-  {
-    id: 2,
-    name: "Company 2",
-    logo: "/src/assets/trusted-companies/company2.png",
-    alt: "Company 2",
-  },
-  {
-    id: 3,
-    name: "Company 3",
-    logo: "/src/assets/trusted-companies/company3.png",
-    alt: "Company 3",
-  },
-  {
-    id: 4,
-    name: "Company 4",
-    logo: "/src/assets/trusted-companies/company4.png",
-    alt: "Company 4",
-  },
-  {
-    id: 5,
-    name: "Company 5",
-    logo: "/src/assets/trusted-companies/company5.png",
-    alt: "Company 5",
-  },
-  {
-    id: 6,
-    name: "Company 6",
-    logo: "/src/assets/trusted-companies/company6.png",
-    alt: "Company 6",
-  },
+const brands = [
+  { id: 1, name: "D'Decor", color: "bg-orange-500" },
+  { id: 2, name: "Prince Piping Systems", color: "bg-blue-600" },
+  { id: 3, name: "TVS", color: "bg-purple-600" },
+  { id: 4, name: "UltraTech Cement", color: "bg-green-600" },
+  { id: 5, name: "Johnson & Johnson", color: "bg-red-500" },
+  { id: 6, name: "Mahindra", color: "bg-blue-500" },
+  { id: 7, name: "Bajaj", color: "bg-yellow-600" },
+  { id: 8, name: "L&T", color: "bg-cyan-600" },
+  { id: 9, name: "Tata Group", color: "bg-indigo-700" },
+  { id: 10, name: "Adani Group", color: "bg-emerald-600" },
+  { id: 11, name: "Havells", color: "bg-orange-600" },
+  { id: 12, name: "Polycab", color: "bg-red-600" },
+  { id: 13, name: "Asian Paints", color: "bg-orange-500" },
+  { id: 14, name: "Godrej", color: "bg-teal-600" },
+  { id: 15, name: "JSW Group", color: "bg-blue-700" },
 ];
 
 export const TrustedCompanies = () => {
   return (
-    <section id="trusted-companies" className="py-24 bg-gradient-to-br from-background to-muted/30">
+    <section id="trusted-companies" className="py-20 bg-gradient-to-br from-background to-muted/30 overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-16 animate-in fade-in slide-in-from-bottom-4">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-4">
-            <Building2 className="w-5 h-5 text-primary" />
-            <span className="text-sm font-semibold text-primary">Trusted Partnerships</span>
-          </div>
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Trusted by Industry{" "}
-            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              Leaders
+            Trusted by{" "}
+            <span className="text-orange-500">
+              Industry Leaders
             </span>
           </h2>
           <p className="text-lg text-muted-foreground">
-            Partnering with India's most respected organizations in the solar and energy sector
+            We are proud to power some of India's most respected brands with clean solar energy
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-          {companies.map((company, index) => (
-            <div
-              key={company.id}
-              className="flex items-center justify-center p-6 rounded-xl border-2 border-border bg-card hover:border-primary/30 hover:shadow-lg transition-all duration-300 group cursor-pointer animate-in fade-in slide-in-from-bottom-4"
-              style={{ animationDelay: `${index * 50}ms` }}
-            >
-              <div className="w-full h-24 flex items-center justify-center">
-                <img
-                  src={company.logo}
-                  alt={company.alt}
-                  className="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-300 opacity-70 group-hover:opacity-100"
-                />
-              </div>
+        <div className="relative w-full overflow-hidden">
+          <div className="carousel-container">
+            <div className="carousel-track">
+              {brands.map((brand) => (
+                <div
+                  key={brand.id}
+                  className={`carousel-item ${brand.color} px-6 py-3 rounded-full text-white font-semibold text-sm md:text-base whitespace-nowrap shadow-lg hover:shadow-xl transition-shadow`}
+                >
+                  {brand.name}
+                </div>
+              ))}
+              {brands.map((brand) => (
+                <div
+                  key={`duplicate-${brand.id}`}
+                  className={`carousel-item ${brand.color} px-6 py-3 rounded-full text-white font-semibold text-sm md:text-base whitespace-nowrap shadow-lg hover:shadow-xl transition-shadow`}
+                >
+                  {brand.name}
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
 
         <div className="text-center mt-12">
           <p className="text-muted-foreground">
-            Join 6000+ satisfied customers and 100+ trusted partners in the solar revolution
+            Trusted by 6000+ satisfied customers across India for clean, affordable solar energy
           </p>
         </div>
       </div>
